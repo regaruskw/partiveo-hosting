@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameServer Pro - Oyun Sunucusu Kiralama</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-gamepad"></i>
+                <span>GameServer Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#packages">Paketler</a></li>
+                <li><a href="#features">Özellikler</a></li>
+                <li><a href="#contact">İletişim</a></li>
+                <li><a href="#order" class="btn-primary">Sipariş Ver</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Profesyonel Oyun Sunucuları</h1>
+                <p>En yüksek performans ve güvenilirlik ile oyun deneyiminizi bir üst seviyeye taşıyın. 24/7 teknik destek ve anında kurulum.</p>
+                <div class="hero-buttons">
+                    <a href="#packages" class="btn-primary">Paketleri İncele</a>
+                    <a href="#features" class="btn-secondary">Özellikleri Gör</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="server-illustration">
+                    <i class="fas fa-server"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Neden GameServer Pro?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Yüksek Performans</h3>
+                    <p>SSD depolama ve yüksek hızlı işlemciler ile kesintisiz oyun deneyimi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Güvenlik</h3>
+                    <p>DDoS koruması ve güvenli veri merkezleri ile sunucularınız korunur</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Destek</h3>
+                    <p>Uzman ekibimiz her zaman yanınızda, anında çözüm için</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Anında Kurulum</h3>
+                    <p>Siparişinizden sonra 5 dakika içinde sunucunuz hazır</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Kolay Yönetim</h3>
+                    <p>Kullanıcı dostu kontrol paneli ile sunucunuzu kolayca yönetin</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Lokasyonlar</h3>
+                    <p>Dünya çapında veri merkezleri ile düşük ping garantisi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <h2>Sunucu Paketleri</h2>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Başlangıç</h3>
+                        <div class="price">
+                            <span class="currency">₺</span>
+                            <span class="amount">29</span>
+                            <span class="period">/ay</span>
+                        </div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> 2GB RAM</li>
+                        <li><i class="fas fa-check"></i> 20GB SSD</li>
+                        <li><i class="fas fa-check"></i> 10 Oyuncu</li>
+                        <li><i class="fas fa-check"></i> 1 Sunucu</li>
+                        <li><i class="fas fa-check"></i> Temel Destek</li>
+                    </ul>
+                    <button class="btn-package" onclick="selectPackage('starter')">Seç</button>
+                </div>
+
+                <div class="package-card popular">
+                    <div class="popular-badge">Popüler</div>
+                    <div class="package-header">
+                        <h3>Profesyonel</h3>
+                        <div class="price">
+                            <span class="currency">₺</span>
+                            <span class="amount">59</span>
+                            <span class="period">/ay</span>
+                        </div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> 4GB RAM</li>
+                        <li><i class="fas fa-check"></i> 50GB SSD</li>
+                        <li><i class="fas fa-check"></i> 25 Oyuncu</li>
+                        <li><i class="fas fa-check"></i> 2 Sunucu</li>
+                        <li><i class="fas fa-check"></i> Öncelikli Destek</li>
+                        <li><i class="fas fa-check"></i> DDoS Koruması</li>
+                    </ul>
+                    <button class="btn-package" onclick="selectPackage('professional')">Seç</button>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Kurumsal</h3>
+                        <div class="price">
+                            <span class="currency">₺</span>
+                            <span class="amount">99</span>
+                            <span class="period">/ay</span>
+                        </div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> 8GB RAM</li>
+                        <li><i class="fas fa-check"></i> 100GB SSD</li>
+                        <li><i class="fas fa-check"></i> 50 Oyuncu</li>
+                        <li><i class="fas fa-check"></i> 5 Sunucu</li>
+                        <li><i class="fas fa-check"></i> 24/7 Destek</li>
+                        <li><i class="fas fa-check"></i> Gelişmiş DDoS</li>
+                        <li><i class="fas fa-check"></i> Özel Lokasyon</li>
+                    </ul>
+                    <button class="btn-package" onclick="selectPackage('enterprise')">Seç</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="games">
+        <div class="container">
+            <h2>Desteklenen Oyunlar</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <i class="fab fa-steam"></i>
+                    <h3>Minecraft</h3>
+                </div>
+                <div class="game-card">
+                    <i class="fas fa-cube"></i>
+                    <h3>CS:GO</h3>
+                </div>
+                <div class="game-card">
+                    <i class="fas fa-crosshairs"></i>
+                    <h3>Rust</h3>
+                </div>
+                <div class="game-card">
+                    <i class="fas fa-hammer"></i>
+                    <h3>ARK</h3>
+                </div>
+                <div class="game-card">
+                    <i class="fas fa-dragon"></i>
+                    <h3>Valheim</h3>
+                </div>
+                <div class="game-card">
+                    <i class="fas fa-sword"></i>
+                    <h3>7 Days to Die</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="order">
+        <div class="container">
+            <h2>Sipariş Ver</h2>
+            <div class="order-form-container">
+                <form class="order-form" id="orderForm">
+                    <div class="form-group">
+                        <label for="package">Paket Seçimi</label>
+                        <select id="package" name="package" required>
+                            <option value="">Paket seçiniz</option>
+                            <option value="starter">Başlangıç - ₺29/ay</option>
+                            <option value="professional">Profesyonel - ₺59/ay</option>
+                            <option value="enterprise">Kurumsal - ₺99/ay</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="game">Oyun</label>
+                        <select id="game" name="game" required>
+                            <option value="">Oyun seçiniz</option>
+                            <option value="minecraft">Minecraft</option>
+                            <option value="csgo">CS:GO</option>
+                            <option value="rust">Rust</option>
+                            <option value="ark">ARK</option>
+                            <option value="valheim">Valheim</option>
+                            <option value="7days">7 Days to Die</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Lokasyon</label>
+                        <select id="location" name="location" required>
+                            <option value="">Lokasyon seçiniz</option>
+                            <option value="istanbul">İstanbul, Türkiye</option>
+                            <option value="frankfurt">Frankfurt, Almanya</option>
+                            <option value="london">Londra, İngiltere</option>
+                            <option value="newyork">New York, ABD</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Ad Soyad</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-posta</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Ek Notlar</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Özel isteklerinizi buraya yazabilirsiniz..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Siparişi Tamamla</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>İletişim</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>E-posta</h3>
+                            <p>info@gameserverpro.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Telefon</h3>
+                            <p>+90 212 555 0123</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Adres</h3>
+                            <p>Maslak Mahallesi, Büyükdere Caddesi<br>No: 123, Sarıyer/İstanbul</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Ad Soyad" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="E-posta" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Konu" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Mesajınız" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Mesaj Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-gamepad"></i>
+                        <span>GameServer Pro</span>
+                    </div>
+                    <p>Profesyonel oyun sunucusu kiralama hizmeti ile oyun deneyiminizi bir üst seviyeye taşıyın.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Hızlı Linkler</h3>
+                    <ul>
+                        <li><a href="#home">Ana Sayfa</a></li>
+                        <li><a href="#packages">Paketler</a></li>
+                        <li><a href="#features">Özellikler</a></li>
+                        <li><a href="#contact">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Destek</h3>
+                    <ul>
+                        <li><a href="#">SSS</a></li>
+                        <li><a href="#">Kullanım Kılavuzu</a></li>
+                        <li><a href="#">Teknik Destek</a></li>
+                        <li><a href="#">İptal Politikası</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Sosyal Medya</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GameServer Pro. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
