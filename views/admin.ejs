@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Paneli</title>
+  <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Admin Paneli</h1>
+      <nav>
+        <a href="/">Site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Siparişler</h2>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tarih</th>
+              <th>Müşteri</th>
+              <th>E-Posta</th>
+              <th>Oyun</th>
+              <th>Plan</th>
+              <th>Slot</th>
+              <th>Fiyat</th>
+              <th>Durum</th>
+              <th>Aksiyon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% orders.forEach(function(o){ %>
+              <tr>
+                <td><code><%= o.id %></code></td>
+                <td><%= new Date(o.createdAt).toLocaleString('tr-TR') %></td>
+                <td><%= o.fullName %></td>
+                <td><a href="mailto:<%= o.email %>"><%= o.email %></a></td>
+                <td><%= o.game %></td>
+                <td><%= (plans.find(p=>p.id===o.planId)||{}).name || o.planId %></td>
+                <td><%= o.slots %></td>
+                <td>$<%= o.price.toFixed(2) %> <small><%= o.currency %></small></td>
+                <td><strong><%= o.status %></strong></td>
+                <td>
+                  <form method="post" action="/admin/orders/<%= o.id %>/status?token=<%= encodeURIComponent(process.env.ADMIN_TOKEN || 'changeme') %>" class="inline-form">
+                    <select name="status">
+                      <option value="pending" <%= o.status==='pending'?'selected':'' %>>pending</option>
+                      <option value="active" <%= o.status==='active'?'selected':'' %>>active</option>
+                      <option value="completed" <%= o.status==='completed'?'selected':'' %>>completed</option>
+                      <option value="cancelled" <%= o.status==='cancelled'?'selected':'' %>>cancelled</option>
+                    </select>
+                    <button class="btn">Güncelle</button>
+                  </form>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <%= new Date().getFullYear() %> Admin</p>
+    </div>
+  </footer>
+</body>
+</html>
+

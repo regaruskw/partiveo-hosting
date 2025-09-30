@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunucu Kirala</title>
+  <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Sunucu Kirala</h1>
+      <nav>
+        <a href="/">Ana Sayfa</a>
+        <a href="/order">Sipariş Ver</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="form-section">
+      <h2>Sipariş Formu</h2>
+      <% if (typeof error !== 'undefined') { %>
+        <div class="alert error"><%= error %></div>
+      <% } %>
+      <% if (typeof success !== 'undefined') { %>
+        <div class="alert success"><%= success %></div>
+      <% } %>
+      <form method="post" action="/order" id="orderForm">
+        <div class="grid">
+          <label>
+            Ad Soyad
+            <input name="fullName" type="text" required />
+          </label>
+          <label>
+            E-posta
+            <input name="email" type="email" required />
+          </label>
+        </div>
+
+        <div class="grid">
+          <label>
+            Oyun
+            <select name="game" id="game" required>
+              <option value="">Seçiniz</option>
+              <option>Minecraft</option>
+              <option>CS2</option>
+              <option>Rust</option>
+              <option>Valheim</option>
+            </select>
+          </label>
+          <label>
+            Plan
+            <select name="planId" id="planId" required>
+              <option value="">Seçiniz</option>
+              <% plans.forEach(function(p){ %>
+                <option value="<%= p.id %>" <%= selectedPlanId === p.id ? 'selected' : '' %>><%= p.name %></option>
+              <% }) %>
+            </select>
+          </label>
+        </div>
+
+        <div class="grid">
+          <label>
+            Slot Sayısı
+            <input name="slots" id="slots" type="number" min="1" step="1" value="10" required />
+          </label>
+          <label>
+            Bölge
+            <select name="region">
+              <option value="eu-central">Frankfurt (EU)</option>
+              <option value="eu-west">Paris (EU)</option>
+              <option value="us-east">Virginia (US)</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Notlar (isteğe bağlı)
+          <textarea name="notes" rows="3" placeholder="Modpack, eklentiler, özel istekler..."></textarea>
+        </label>
+
+        <div class="price-box">
+          <div>Toplam: <strong id="price">$0.00</strong> / ay</div>
+        </div>
+        <button class="btn primary" type="submit">Siparişi Gönder</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <%= new Date().getFullYear() %> Oyun Sunucusu Kiralama</p>
+    </div>
+  </footer>
+
+  <script>
+    const plans = <%- JSON.stringify(plans) %>;
+    const planSelect = document.getElementById('planId');
+    const slotsInput = document.getElementById('slots');
+    const priceEl = document.getElementById('price');
+
+    function computePrice(planId, slots) {
+      const plan = plans.find(p => p.id === planId);
+      if (!plan) return 0;
+      const factor = Math.max(1, slots / plan.defaultSlots);
+      return Math.round(plan.monthlyPrice * factor * 100) / 100;
+    }
+
+    function updatePrice() {
+      const planId = planSelect.value;
+      const slots = Number(slotsInput.value || 0);
+      const price = computePrice(planId, slots);
+      priceEl.textContent = `$${price.toFixed(2)}`;
+    }
+
+    planSelect.addEventListener('change', updatePrice);
+    slotsInput.addEventListener('input', updatePrice);
+    updatePrice();
+
+    document.getElementById('orderForm').addEventListener('submit', function(e){
+      if (!planSelect.value) {
+        e.preventDefault();
+        alert('Lütfen bir plan seçiniz.');
+      }
+    });
+  </script>
+</body>
+</html>
+

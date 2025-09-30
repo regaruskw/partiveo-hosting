@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oyun Sunucusu Kirala</title>
+  <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Oyun Sunucusu Kiralama</h1>
+      <nav>
+        <a href="/">Ana Sayfa</a>
+        <a href="/order">Sipariş Ver</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Yüksek Performanslı Oyun Sunucuları</h2>
+      <p>Düşük ping, DDoS koruması ve 7/24 destek ile hemen başlayın.</p>
+      <a class="btn primary" href="/order">Hemen Kirala</a>
+    </section>
+
+    <section class="plans">
+      <h3>Planlar</h3>
+      <div class="plan-grid">
+        <% plans.forEach(function(plan){ %>
+          <article class="plan-card">
+            <h4><%= plan.name %></h4>
+            <div class="price">$<%= plan.monthlyPrice.toFixed(2) %>/ay</div>
+            <ul class="features">
+              <% plan.features.forEach(function(f){ %>
+                <li><%= f %></li>
+              <% }) %>
+            </ul>
+            <a class="btn" href="/order?plan=<%= plan.id %>">Seç ve Kirala</a>
+          </article>
+        <% }) %>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <%= new Date().getFullYear() %> Oyun Sunucusu Kiralama</p>
+    </div>
+  </footer>
+
+  <script>
+    // noop
+  </script>
+</body>
+</html>
+
