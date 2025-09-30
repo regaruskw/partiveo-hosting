@@ -1,0 +1,28 @@
+{
+  "name": "gamehost-pro",
+  "version": "1.0.0",
+  "description": "Professional game server hosting website",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 3000",
+    "build": "echo 'Build completed successfully'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "game-server",
+    "hosting",
+    "minecraft",
+    "csgo",
+    "gaming"
+  ],
+  "author": "GameHost Pro",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gamehostpro/website.git"
+  },
+  "homepage": "https://gamehostpro.com"
+}
