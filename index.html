@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHost - Oyun Sunucusu Kiralama</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>GameHost</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#servers">Sunucular</a></li>
+                <li><a href="#pricing">Fiyatlar</a></li>
+                <li><a href="#features">Özellikler</a></li>
+                <li><a href="#contact">İletişim</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-secondary" onclick="showLogin()">Giriş Yap</button>
+                <button class="btn btn-primary" onclick="showRegister()">Kayıt Ol</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>En İyi Oyun Sunucusu Kiralama Hizmeti</h1>
+                <p>Düşük gecikme, yüksek performans ve 7/24 destek ile oyun deneyiminizi zirveye taşıyın</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large" onclick="scrollToServers()">Sunucu Kirala</button>
+                    <button class="btn btn-secondary btn-large" onclick="scrollToPricing()">Fiyatları Görüntüle</button>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>5000+</h3>
+                        <p>Aktif Sunucu</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>99.9%</h3>
+                        <p>Uptime Garantisi</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Teknik Destek</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Neden Bizi Seçmelisiniz?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Yüksek Performans</h3>
+                    <p>Son nesil donanım ve SSD disklerle en yüksek performansı sunuyoruz</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>DDoS Koruması</h3>
+                    <p>Profesyonel DDoS koruması ile sunucunuz her zaman güvende</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Anında Kurulum</h3>
+                    <p>Siparişiniz onaylandıktan sonra 60 saniye içinde sunucunuz hazır</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>7/24 Destek</h3>
+                    <p>Uzman ekibimiz her zaman yanınızda, hızlı çözümler sunuyoruz</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Küresel Konumlar</h3>
+                    <p>Dünya genelinde veri merkezlerimizle düşük ping garantisi</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Otomatik Yedekleme</h3>
+                    <p>Günlük otomatik yedekleme ile verileriniz her zaman güvende</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servers Section -->
+    <section id="servers" class="servers">
+        <div class="container">
+            <h2 class="section-title">Popüler Oyun Sunucuları</h2>
+            <div class="server-grid">
+                <div class="server-card">
+                    <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400" alt="Minecraft">
+                    <div class="server-info">
+                        <h3>Minecraft</h3>
+                        <p>Java & Bedrock Edition destekli Minecraft sunucuları</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Mod desteği</li>
+                            <li><i class="fas fa-check"></i> Plugin yükleyebilme</li>
+                            <li><i class="fas fa-check"></i> Sınırsız slot</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="openOrderModal('Minecraft')">Kirala</button>
+                    </div>
+                </div>
+                <div class="server-card">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400" alt="CS:GO">
+                    <div class="server-info">
+                        <h3>Counter-Strike: GO</h3>
+                        <p>128 tick CS:GO sunucuları ile profesyonel deneyim</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 128 tick rate</li>
+                            <li><i class="fas fa-check"></i> Custom map desteği</li>
+                            <li><i class="fas fa-check"></i> Özel konfigürasyon</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="openOrderModal('CS:GO')">Kirala</button>
+                    </div>
+                </div>
+                <div class="server-card">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400" alt="FiveM">
+                    <div class="server-info">
+                        <h3>FiveM (GTA V)</h3>
+                        <p>Yüksek performanslı FiveM roleplay sunucuları</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Özel scriptler</li>
+                            <li><i class="fas fa-check"></i> OneSync desteği</li>
+                            <li><i class="fas fa-check"></i> 256 oyuncu kapasitesi</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="openOrderModal('FiveM')">Kirala</button>
+                    </div>
+                </div>
+                <div class="server-card">
+                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400" alt="Rust">
+                    <div class="server-info">
+                        <h3>Rust</h3>
+                        <p>Optimize edilmiş Rust survival sunucuları</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Oxide/uMod desteği</li>
+                            <li><i class="fas fa-check"></i> Custom map yükleme</li>
+                            <li><i class="fas fa-check"></i> Yüksek FPS</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="openOrderModal('Rust')">Kirala</button>
+                    </div>
+                </div>
+                <div class="server-card">
+                    <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=400" alt="ARK">
+                    <div class="server-info">
+                        <h3>ARK: Survival Evolved</h3>
+                        <p>Güçlü ARK sunucuları ile dinozor dünyası</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Tüm DLC'ler</li>
+                            <li><i class="fas fa-check"></i> Mod desteği</li>
+                            <li><i class="fas fa-check"></i> Küme yapısı</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="openOrderModal('ARK')">Kirala</button>
+                    </div>
+                </div>
+                <div class="server-card">
+                    <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=400" alt="Discord Bot">
+                    <div class="server-info">
+                        <h3>Discord Bot Hosting</h3>
+                        <p>Discord botlarınız için güvenilir hosting</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 7/24 çalışma</li>
+                            <li><i class="fas fa-check"></i> Düşük gecikme</li>
+                            <li><i class="fas fa-check"></i> Kolay yönetim</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="openOrderModal('Discord Bot')">Kirala</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Fiyatlandırma Paketleri</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Başlangıç</h3>
+                        <div class="price">
+                            <span class="amount">₺99</span>
+                            <span class="period">/ay</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 2 GB RAM</li>
+                        <li><i class="fas fa-check"></i> 2 CPU Core</li>
+                        <li><i class="fas fa-check"></i> 20 GB SSD</li>
+                        <li><i class="fas fa-check"></i> 1 TB Trafik</li>
+                        <li><i class="fas fa-check"></i> DDoS Koruması</li>
+                        <li><i class="fas fa-check"></i> 7/24 Destek</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="selectPlan('Başlangıç', 99)">Paketi Seç</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="badge">Popüler</div>
+                    <div class="pricing-header">
+                        <h3>Profesyonel</h3>
+                        <div class="price">
+                            <span class="amount">₺199</span>
+                            <span class="period">/ay</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 4 GB RAM</li>
+                        <li><i class="fas fa-check"></i> 4 CPU Core</li>
+                        <li><i class="fas fa-check"></i> 50 GB SSD</li>
+                        <li><i class="fas fa-check"></i> 2 TB Trafik</li>
+                        <li><i class="fas fa-check"></i> DDoS Koruması</li>
+                        <li><i class="fas fa-check"></i> 7/24 Öncelikli Destek</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="selectPlan('Profesyonel', 199)">Paketi Seç</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Kurumsal</h3>
+                        <div class="price">
+                            <span class="amount">₺399</span>
+                            <span class="period">/ay</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 8 GB RAM</li>
+                        <li><i class="fas fa-check"></i> 8 CPU Core</li>
+                        <li><i class="fas fa-check"></i> 100 GB SSD</li>
+                        <li><i class="fas fa-check"></i> Sınırsız Trafik</li>
+                        <li><i class="fas fa-check"></i> Gelişmiş DDoS Koruması</li>
+                        <li><i class="fas fa-check"></i> 7/24 Premium Destek</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="selectPlan('Kurumsal', 399)">Paketi Seç</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations">
+        <div class="container">
+            <h2 class="section-title">Küresel Veri Merkezleri</h2>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>İstanbul, Türkiye</h4>
+                    <p>5ms ortalama ping</p>
+                </div>
+                <div class="location-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Frankfurt, Almanya</h4>
+                    <p>15ms ortalama ping</p>
+                </div>
+                <div class="location-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Londra, İngiltere</h4>
+                    <p>25ms ortalama ping</p>
+                </div>
+                <div class="location-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>New York, ABD</h4>
+                    <p>90ms ortalama ping</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">İletişime Geçin</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Bize Ulaşın</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-posta</h4>
+                            <p>destek@gamehost.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p>+90 (212) 555 0123</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-discord"></i>
+                        <div>
+                            <h4>Discord</h4>
+                            <p>discord.gg/gamehost</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="handleContactForm(event)">
+                    <input type="text" placeholder="Adınız" required>
+                    <input type="email" placeholder="E-posta Adresiniz" required>
+                    <textarea placeholder="Mesajınız" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Gönder</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-gamepad"></i>
+                        <span>GameHost</span>
+                    </div>
+                    <p>En güvenilir oyun sunucusu kiralama platformu</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul>
+                        <li><a href="#home">Ana Sayfa</a></li>
+                        <li><a href="#servers">Sunucular</a></li>
+                        <li><a href="#pricing">Fiyatlar</a></li>
+                        <li><a href="#features">Özellikler</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Yasal</h4>
+                    <ul>
+                        <li><a href="#">Kullanım Şartları</a></li>
+                        <li><a href="#">Gizlilik Politikası</a></li>
+                        <li><a href="#">İade Politikası</a></li>
+                        <li><a href="#">KVKK</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Sosyal Medya</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 GameHost. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal - Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Giriş Yap</h2>
+            <form onsubmit="handleLogin(event)">
+                <input type="email" placeholder="E-posta" required>
+                <input type="password" placeholder="Şifre" required>
+                <button type="submit" class="btn btn-primary">Giriş Yap</button>
+            </form>
+            <p class="modal-footer">Hesabınız yok mu? <a href="#" onclick="showRegister()">Kayıt Ol</a></p>
+        </div>
+    </div>
+
+    <!-- Modal - Register -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Kayıt Ol</h2>
+            <form onsubmit="handleRegister(event)">
+                <input type="text" placeholder="Ad Soyad" required>
+                <input type="email" placeholder="E-posta" required>
+                <input type="password" placeholder="Şifre" required>
+                <input type="password" placeholder="Şifre Tekrar" required>
+                <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+            </form>
+            <p class="modal-footer">Zaten hesabınız var mı? <a href="#" onclick="showLogin()">Giriş Yap</a></p>
+        </div>
+    </div>
+
+    <!-- Modal - Order -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="closeModal('orderModal')">&times;</span>
+            <h2>Sunucu Kiralama</h2>
+            <form id="orderForm" onsubmit="handleOrder(event)">
+                <div class="form-group">
+                    <label>Oyun Seçimi</label>
+                    <select id="gameSelect" required>
+                        <option value="">Oyun Seçin</option>
+                        <option value="Minecraft">Minecraft</option>
+                        <option value="CS:GO">Counter-Strike: GO</option>
+                        <option value="FiveM">FiveM (GTA V)</option>
+                        <option value="Rust">Rust</option>
+                        <option value="ARK">ARK: Survival Evolved</option>
+                        <option value="Discord Bot">Discord Bot Hosting</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Paket Seçimi</label>
+                    <select id="planSelect" required>
+                        <option value="">Paket Seçin</option>
+                        <option value="Başlangıç" data-price="99">Başlangıç - ₺99/ay</option>
+                        <option value="Profesyonel" data-price="199">Profesyonel - ₺199/ay</option>
+                        <option value="Kurumsal" data-price="399">Kurumsal - ₺399/ay</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Sunucu Konumu</label>
+                    <select required>
+                        <option value="">Konum Seçin</option>
+                        <option value="Istanbul">İstanbul, Türkiye</option>
+                        <option value="Frankfurt">Frankfurt, Almanya</option>
+                        <option value="London">Londra, İngiltere</option>
+                        <option value="NewYork">New York, ABD</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Sunucu Adı</label>
+                    <input type="text" placeholder="Sunucunuza bir isim verin" required>
+                </div>
+                <div class="order-summary">
+                    <h3>Sipariş Özeti</h3>
+                    <div class="summary-item">
+                        <span>Oyun:</span>
+                        <span id="summaryGame">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Paket:</span>
+                        <span id="summaryPlan">-</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Toplam:</span>
+                        <span id="summaryTotal">₺0/ay</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Siparişi Tamamla</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
